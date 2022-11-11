@@ -1,8 +1,19 @@
-<!--
-A special "data-mage-init" HTML attribute is declared on the main DOM element you wish to initialize,
-and then the JavaScript component and properties are passed to it as a JSON string.
--->
-<div id="vue-test"
-     data-mage-init='{ "Macademy_JsFun/js/vue-test": { "message": "Another test" } }'>
+<div id="vue-test">
     <h1>{{ message }}</h1>
 </div>
+
+<script type="text/x-magento-init"> 
+/**
+ * Target the DOM element with a standard JavaScrip selector. You may also
+ * replace the selector with "*" to target all elements. The next property is
+ * the JavaScript component you wish to initialize, with the value of an object
+ * containing properties you wish to set for that component.
+ */
+{
+    "#vue-test": {
+        "Macademy_JsFun/js/vue-test": {
+            "message": "Declarative test"
+        }
+    }
+}
+</script>
