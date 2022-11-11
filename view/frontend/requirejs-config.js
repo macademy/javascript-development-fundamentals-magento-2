@@ -19,11 +19,16 @@ Shims are used to define relationships. By defining a shim, mapping
 
 Defining a file under "deps" ensures it loads on every single page. This
 is generally an anti-pattern, as explicit dependency loading is preferred.
+
+Use "map" to easily override any other JavaScript component. The asterisk
+tells Magento to override this file for all RequireJS modules, and the
+convention is "FileToOverride": "FileThatOverrides" using RequireJS notation.
 */
 var config = {
     "map": {
         "*": {
-            "fadeInElement": "Macademy_JsFun/js/fade-in-element"
+            "fadeInElement": "Macademy_JsFun/js/fade-in-element",
+            "Magento_Review/js/submit-review": "Macademy_JsFun/js/submit-review"
         }
     },
     "paths": {
