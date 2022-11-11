@@ -1,0 +1,16 @@
+<script>
+// Defining a "script" tag inline within the PHTML file and calling "require" is a great way to pull
+// in JavaScript libraries and other dependencies using RequireJS.
+
+// Dependencies are passed as strings to an array, and are mapped 1:1 to function parameters.
+// 'jquery' -> $
+require(['jquery'], function($) {
+    // Defining strict mode at the top of all JavaScript files is best practice.
+    'use strict';
+    
+    // The $ variable is now accessible within this function to access the 'jquery' library.
+    $(function() {
+        console.log('Block promo effects');
+    });
+});
+</script>
