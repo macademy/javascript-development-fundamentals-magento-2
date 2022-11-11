@@ -1,18 +1,10 @@
-/**
- * If you use "*" to target all elements, the element property within the
- * callback will be null because RequireJS won't know which specific element you
- * wish to refeference. In this case, hardcode a selector or use an HTML class
- * attribute rather than an ID selector within your JS initialization.
- */
-define(['vue'], function(Vue) {
-    'use strict'
+// When you request both "jquery" and "Macademy_JsFun/js/jquery-log", async
+// requests are made to request both files.
+define(['vue', 'jquery', 'Macademy_JsFun/js/jquery-log'], function(Vue, $) {
+    'use strict';
 
-    return function(config, element) {
-        return new Vue({
-            el: '#' + element.id,
-            data: {
-                message: config.message
-            }
-        });
-    };
+    // However, there's no way of knowing which library loads first, possibly
+    // causing the jQuery plugin to be loaded before the jQuery library loads.
+    // This can cause unexpected results when executing the following code:
+    $.log('Testing output to the console');
 });
