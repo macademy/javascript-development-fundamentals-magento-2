@@ -1,19 +1,24 @@
+<?php
+/**
+ * The view model is then referenced by it's name and assigned to a variable, using PHP & Magento
+ * naming conventions of camelCase for variable names. Also remember to typehint your view model.
+ */
+
+/** @var \Macademy\JsFun\ViewModel\Message $messageViewModel */
+$messageViewModel = $block->getData('message_view_model');
+?>
+
 <div id="vue-test">
+    <!-- The "message" property defined below is now available within your template. -->
     <h1>{{ message }}</h1>
 </div>
 
-<script type="text/x-magento-init"> 
-/**
- * Target the DOM element with a standard JavaScrip selector. You may also
- * replace the selector with "*" to target all elements. The next property is
- * the JavaScript component you wish to initialize, with the value of an object
- * containing properties you wish to set for that component.
- */
-{
-    "#vue-test": {
-        "Macademy_JsFun/js/vue-test": {
-            "message": "Declarative test"
+<script type="text/x-magento-init">
+    {
+        "#vue-test": {
+            "Macademy_JsFun/js/vue-test": {
+                "message": "<?= $messageViewModel->getMessage() // Call your function here... ?>"
+            }
         }
     }
-}
 </script>
